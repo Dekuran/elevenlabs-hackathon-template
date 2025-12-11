@@ -28,14 +28,17 @@ export async function POST(req: NextRequest) {
     if (isResume && session.currentCase) {
       callContext = session.currentCase.callContext;
 
-      const fieldValue =
-        session.currentCase.pendingField === "residence_card_number"
-          ? session.user.residenceCardNumber
-          : session.user.pensionNumber;
+      const resolvedField = session.currentCase.lastResolvedField;
+      const resolvedValue = session.currentCase.lastResolvedValue;
 
-      memoryBlob =
-        session.currentCase.memoryBlob +
-        ` UPDATE: User provided ${session.currentCase.pendingField}: ${fieldValue}`;
+      if (resolvedField && resolvedValue) {
+        memoryBlob =
+          (session.currentCase.memoryBlob ?? "") +
+          ` UPDATE: User provided ${resolvedField}: ${resolvedValue}`;
+      } else {
+        // No resolved info captured, just carry forward existing memory
+        memoryBlob = session.currentCase.memoryBlob;
+      }
     } else {
       callContext = {
         call_goal_en: "Request exemption due to home country pension coverage",

@@ -26,6 +26,11 @@ export async function POST(req: NextRequest) {
     }
 
     if (session.currentCase) {
+      // Capture the last resolved field/value so we can correctly
+      // append this information to the memoryBlob on call resume.
+      session.currentCase.lastResolvedField = field;
+      session.currentCase.lastResolvedValue = value;
+
       session.currentCase.pendingField = undefined;
       session.currentCase.pendingReason = undefined;
       session.currentCase.awaitingUserInfo = false;

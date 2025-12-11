@@ -39,6 +39,13 @@ export type CaseState = {
   pendingReason?: string;
   awaitingUserInfo?: boolean;
   readyToResume?: boolean;
+  /**
+   * Tracks the last resolved user info so we can correctly
+   * append updates to the memoryBlob on call resume, even
+   * after pendingField/pendingReason are cleared.
+   */
+  lastResolvedField?: string;
+  lastResolvedValue?: string;
 };
 
 export type SessionState = {
