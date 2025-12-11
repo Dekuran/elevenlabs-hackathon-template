@@ -1,2 +1,4 @@
 {
+  "buildCommand": "echo \"Static deploy for Do I have to Pay this?\"",
+  "outputDirectory": "public"
 }
