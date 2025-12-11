@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "app/api/startStream/route.ts": {
+      "maxDuration": 300
+    }
+  }
+}

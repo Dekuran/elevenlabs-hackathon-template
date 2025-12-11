@@ -7,8 +7,14 @@ export default function Home() {
       </p>
 
       <div style={{ padding: '1rem', background: '#e3f2fd', marginBottom: '2rem', borderRadius: '4px' }}>
-        <strong>Test the API:</strong>{' '}
-        <a href="/test" style={{ color: '#2196f3' }}>Open Testing Interface →</a>
+        <div style={{ marginBottom: '0.5rem' }}>
+          <strong>🧪 Test the API:</strong>{' '}
+          <a href="/test" style={{ color: '#2196f3' }}>Open Testing Interface →</a>
+        </div>
+        <div>
+          <strong>📡 Test Real-Time Streaming:</strong>{' '}
+          <a href="/stream-test" style={{ color: '#2196f3' }}>Live Transcription →</a>
+        </div>
       </div>
       <h2>API Endpoints</h2>
       <ul>
@@ -35,6 +41,12 @@ export default function Home() {
         </li>
         <li>
           <code>POST /api/summarizeCall</code> - Summarize call transcript
+        </li>
+        <li>
+          <code>POST /api/startStream</code> - Start real-time stream (Pusher bridge)
+        </li>
+        <li>
+          <code>POST /api/stopStream</code> - Stop real-time stream
         </li>
       </ul>
       <p>
