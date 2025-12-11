@@ -4,6 +4,8 @@ import { v2 as translateV2 } from "@google-cloud/translate";
 import { pusherServer, getConversationChannel } from "@/lib/pusher";
 import { activeStreams } from "@/lib/streamConnections";
 
+export const maxDuration = 300;
+
 function getTranslateClient() {
   const credentials = process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
