@@ -125,8 +125,15 @@ GOOGLE_CLOUD_PROJECT=your-project-id
 
 For `GOOGLE_APPLICATION_CREDENTIALS`:
 - **Key**: `GOOGLE_APPLICATION_CREDENTIALS`
-- **Value**: Paste entire JSON from service account file
-- **Note**: This is a multi-line JSON, paste it exactly as is
+- **Value**: Paste entire JSON from service account file (not the file path!)
+- **Format**: The JSON should look like this:
+  ```json
+  {"type":"service_account","project_id":"your-project","private_key_id":"abc123",...}
+  ```
+- **Important**:
+  - ✅ Paste the JSON content directly
+  - ❌ Do NOT use a file path like `./service-account.json`
+  - The code automatically detects whether it's a JSON string or file path
 
 #### ElevenLabs (Required for Voice Agents)
 ```

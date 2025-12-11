@@ -4,10 +4,27 @@ import { v2 as translateV2 } from "@google-cloud/translate";
 import { pusherServer, getConversationChannel } from "@/lib/pusher";
 import { activeStreams } from "@/lib/streamConnections";
 
-const translate = new translateV2.Translate({
-  projectId: process.env.GOOGLE_CLOUD_PROJECT_ID,
-  keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
-});
+function getTranslateClient() {
+  const credentials = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+
+  if (credentials?.startsWith('{')) {
+    return new translateV2.Translate({
+      projectId: process.env.GOOGLE_CLOUD_PROJECT_ID,
+      credentials: JSON.parse(credentials),
+    });
+  } else if (credentials) {
+    return new translateV2.Translate({
+      projectId: process.env.GOOGLE_CLOUD_PROJECT_ID,
+      keyFilename: credentials,
+    });
+  } else {
+    return new translateV2.Translate({
+      projectId: process.env.GOOGLE_CLOUD_PROJECT_ID,
+    });
+  }
+}
+
+const translate = getTranslateClient();
 
 async function translateWithGoogle(text: string): Promise<string> {
   try {
