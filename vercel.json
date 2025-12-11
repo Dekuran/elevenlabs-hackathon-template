@@ -1,7 +1,2 @@
 {
-  "functions": {
-    "api/startStream": {
-      "maxDuration": 300
-    }
-  }
 }
