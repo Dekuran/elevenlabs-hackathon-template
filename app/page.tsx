@@ -5,6 +5,11 @@ export default function Home() {
       <p>
         Backend API for two-agent Japanese bureaucracy assistance system.
       </p>
+
+      <div style={{ padding: '1rem', background: '#e3f2fd', marginBottom: '2rem', borderRadius: '4px' }}>
+        <strong>Test the API:</strong>{' '}
+        <a href="/test" style={{ color: '#2196f3' }}>Open Testing Interface →</a>
+      </div>
       <h2>API Endpoints</h2>
       <ul>
         <li>
