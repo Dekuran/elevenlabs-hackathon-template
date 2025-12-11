@@ -2,7 +2,7 @@
 
 ## Overview
 
-Complete backend system for a two-agent AI assistant that helps foreign residents navigate Japanese bureaucracy. The system coordinates two ElevenLabs Conversational AI agents:
+Complete backend system for a two-agent AI assistant that helps foreign residents navigate Japanese bureaucracy. The system coordinates two ElevenLabs Conversational AI agents :
 
 1. **Japanese Agent** - Makes phone calls to Japanese government offices
 2. **English Agent** - Gathers missing information from users during calls
